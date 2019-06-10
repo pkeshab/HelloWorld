@@ -16,6 +16,7 @@ pipeline {
                 echo 'SBT test and package..'
                 sh "sbt test"
                 sh "sbt package"
+            
             }
         }
             
