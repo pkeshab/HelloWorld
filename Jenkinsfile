@@ -9,6 +9,7 @@ pipeline {
             steps {
                 echo 'SBT compile..'
                 sh "sbt compile"
+                sh "sbt run"
             }
         }
         stage('Test and package'){
