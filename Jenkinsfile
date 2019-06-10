@@ -25,6 +25,7 @@ pipeline {
             
             stage('Upload in nexus repo'){
                 steps {
+                 echo "Hello"
                        }
                 
             }
