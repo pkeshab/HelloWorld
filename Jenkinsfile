@@ -1,6 +1,5 @@
 pipeline {
     agent {
-        dockerfile true
         docker {
             image 'hseeberger/scala-sbt'
         }
