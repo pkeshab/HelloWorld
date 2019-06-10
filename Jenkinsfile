@@ -5,11 +5,12 @@ pipeline {
         }
     }
     stages {
-        stage('Test') {
+        stage('Compile') {
             steps {
-                echo 'Building..'
-                sh "sbt test"
+                echo 'SBT compile..'
+                sh "sbt compile"
             }
+          
         }
     } 
 }
