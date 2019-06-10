@@ -12,7 +12,7 @@ pipeline {
             }
         stage('Test and package'){
             steps {
-                echo "SBT test and package..'
+                echo SBT test and package..'
                 sh "sbt test"
                 sh "sbt package"
             }
