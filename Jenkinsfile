@@ -16,7 +16,7 @@ pipeline {
                 echo 'SBT test and package..'
                 sh "sbt test"
                 sh "sbt package"
-                echo "$BUILD_NUMBER"
+                sh "echo $BUILD_NUMBER"
             
             }
         }
