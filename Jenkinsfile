@@ -10,6 +10,7 @@ pipeline {
                 echo 'SBT compile..'
                 sh "sbt compile"
             }
+        }
         stage('Test and package'){
             steps {
                 echo 'SBT test and package..'
@@ -17,7 +18,6 @@ pipeline {
                 sh "sbt package"
             }
             
-            }
           
         }
     } 
