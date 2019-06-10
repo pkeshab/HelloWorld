@@ -17,7 +17,6 @@ pipeline {
                 sh "sbt test"
                 sh label: '', script: 'java -version'
                 sh "sbt package"
-                sh label: '', script: 'sh "java -jar /var/jenkins_home/workspace/HelloWorld_master/target/scala-2.12/helloworld_2.12-0.1.jar"  '
                 echo "$BUILD_NUMBER"
             
             }
