@@ -6,7 +6,7 @@ pipeline {
         docker {
             image 'hseeberger/scala-sbt'
         }
-    */}
+    }*/
 
             steps {
                 echo 'SBT test and package..'
