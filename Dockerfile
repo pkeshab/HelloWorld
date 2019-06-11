@@ -1,4 +1,4 @@
 FROM openjdk:8-jre-alpine
 WORKDIR /
-ADD  /var/jenkins_home/workspace/FirstScala_master@2/target/scala-2.12/HelloWorld-assembly-0.1.jar app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+RUN wget http://10.1.100.158:8081/repository/repository-example/mygroupid/diwo-artifact_amx_80/v3/diwo-artifact_amx_80-v3-classifier.jar
+
