@@ -24,7 +24,8 @@ pipeline {
         }
         stage('cheking docker commands'){
             steps{
-             sh 'docker ps'
+                sh label: '', script: 'docker ps'
+
             }
         }
             
