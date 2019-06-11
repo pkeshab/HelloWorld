@@ -24,7 +24,7 @@ pipeline {
         }
         stage('cheking docker commands'){
             steps{
-               sh 'docker ps'
+               docker.build .
             }
         }
             
