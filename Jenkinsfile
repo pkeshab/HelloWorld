@@ -1,12 +1,12 @@
 pipeline {
     agent any
     stages {
-        /*stage('Test and package'){
+        stage('Test and package'){
             agent {
         docker {
             image 'hseeberger/scala-sbt'
         }
-    }*/
+    }
 
             steps {
                 echo 'SBT test and package..'
