@@ -22,6 +22,11 @@ pipeline {
             
             }
         }
+        stage('Creating the dockerfile'){
+            steps{
+               sh 'docker build .'
+            }
+        }
             
             stage('Upload in nexus repo'){
                 steps {
