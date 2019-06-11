@@ -1,11 +1,12 @@
 pipeline {
-    agent {
+    
+    stages {
+        stage('Compile and run') {
+            agent {
         docker {
             image 'hseeberger/scala-sbt'
         }
     }
-    stages {
-        stage('Compile and run') {
             steps {
                 echo 'SBT compile..'
                 sh "sbt compile"
@@ -34,12 +35,6 @@ pipeline {
             }
           
         }
-    
-    
-    
-    node {
-        sh label: '', script: 'docker ps'
-    }
     
     
     
