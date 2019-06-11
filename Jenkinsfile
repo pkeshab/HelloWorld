@@ -30,7 +30,7 @@ pipeline {
         stage('Build the docker image'){
             steps{
             sh 'docker ps'
-            sh 'docker build scalasampleimage:latest .'
+            sh 'docker build -t scalasampleimage:latest .'
             
             }
         }
