@@ -13,7 +13,7 @@ pipeline {
                 sh "sbt test"
                 sh label: '', script: 'java -version'
                 sh label: '', script: 'sbt clean assembly'
-                sh label: '', script: 'java -jar /var/jenkins_home/workspace/FirstScala_master@2/target/scala-2.12/HelloWorld-assembly-0.1.jar'
+                //sh label: '', script: 'java -jar /var/jenkins_home/workspace/FirstScala_master@2/target/scala-2.12/HelloWorld-assembly-0.1.jar'
             
             }
         }
