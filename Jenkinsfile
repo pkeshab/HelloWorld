@@ -24,7 +24,7 @@ pipeline {
         }
         stage('cheking docker commands'){
             steps{
-             sh 'docker.build .'
+             sh 'docker.build /var/jenkins_home/workspace/HelloWorld/Dockerfile'
             }
         }
             
