@@ -22,9 +22,9 @@ pipeline {
             
             }
         }
-        stage('Creating the dockerfile'){
+        stage('cheking docker commands'){
             steps{
-               sh 'docker build .'
+               sh 'docker ps'
             }
         }
             
