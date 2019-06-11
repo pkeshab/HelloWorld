@@ -22,12 +22,7 @@ pipeline {
             
             }
         }
-        stage('cheking docker commands'){
-            steps{
-                sh label: '', script: 'docker ps'
-
-            }
-        }
+      
             
             stage('Upload in nexus repo'){
                 steps {
@@ -41,7 +36,10 @@ pipeline {
         }
     
     
-
+    
+    node {
+        sh label: '', script: 'docker ps'
+    }
     
     
     
