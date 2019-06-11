@@ -1,5 +1,5 @@
 pipeline {
-    
+    agent any
     stages {
         stage('Compile and run') {
             agent {
