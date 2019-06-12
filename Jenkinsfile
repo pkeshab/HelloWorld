@@ -17,7 +17,7 @@ pipeline {
                 //echo "$BUILD_NUMBER"
                 //sh label: '', script: 'echo "$JOB_NAME"'
                 //sh label: '', script: 'git branch'
-                //echo "$WORKSPACE"
+                echo "$WORKSPACE"
                 //sh label: '', script: 'echo "$GIT_URL"'
                 
                 sh label: '', script: 'java -jar ${WORKSPACE}/target/scala-2.12/HelloWorld-assembly-0.1.jar'
