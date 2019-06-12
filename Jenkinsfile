@@ -19,16 +19,16 @@ pipeline {
                 sh label: '', script: 'git branch'
                 echo "$WORKSPACE"
                 sh label: '', script: 'echo "$GIT_URL"'
-                sh label: '', script: 'echo "${/var/jenkins_home/workspace/$JOB_NAME_master@2/target/scala-2.12/*}"'
+                
                 //sh label: '', script: 'java -jar /var/jenkins_home/workspace/$JOB_NAME_master@2/target/scala-2.12/HelloWorld-assembly-0.1.jar'
             
             }
         }
       
             
-            /*stage('Upload in nexus repo'){
+            stage('Upload in nexus repo'){
                 steps {
-           nexusArtifactUploader artifacts: [[artifactId: 'diwo-artifact_amx_$BUILD_NUMBER', classifier: 'classifier', file: '/var/jenkins_home/workspace/FirstScala_master@2/target/scala-2.12/HelloWorld-assembly-0.1.jar', type: 'jar']], credentialsId: 'nexus-credentials', groupId: 'mygroupid', nexusUrl: '10.1.100.158:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'repository-example', version: 'v3'
+           nexusArtifactUploader artifacts: [[artifactId: 'diwo-artifact_amx_$BUILD_NUMBER', classifier: 'classifier', file: '/var/jenkins_home/workspace/FirstScala_master@2/target/scala-2.12/*.jar', type: 'jar']], credentialsId: 'nexus-credentials', groupId: 'mygroupid', nexusUrl: '10.1.100.158:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'repository-example', version: 'v3'
              
 
                        }
@@ -40,7 +40,7 @@ pipeline {
             sh 'docker build -t scalasampleimage:latest .'
             
             }
-        }*/
+        }
           
         }
     
