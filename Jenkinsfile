@@ -12,7 +12,7 @@ pipeline {
                 echo 'SBT test and package..'
                 sh "sbt test"
                // sh label: '', script: 'java -version'
-                //sh label: '', script: 'sbt clean assembly'
+                sh label: '', script: 'sbt clean assembly'
                 sh label: '', script: 'ls /var/jenkins_home/workspace'
                 echo "$BUILD_NUMBER"
                 sh label: '', script: 'echo "$JOB_NAME"'
