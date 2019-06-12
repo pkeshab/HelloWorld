@@ -21,7 +21,7 @@ pipeline {
                 //sh label: '', script: 'echo "$GIT_URL"'
                 
                 sh label: '', script: 'java -jar ${WORKSPACE}/target/scala-2.12/HelloWorld-assembly-0.1.jar'
-                archiveArtifacts artifacts: 'target/scala-2.12/*', onlyIfSuccessful: true
+                //archiveArtifacts artifacts: 'target/scala-2.12/*', onlyIfSuccessful: true
                
 
             
@@ -31,7 +31,7 @@ pipeline {
             
             stage('Upload in nexus repo'){
                 steps {
-nexusArtifactUploader artifacts: [[artifactId: 'diwo_AMEXARTIFACTS_0012-LOVEN$BUILD_NUMBER', classifier: 'SNAPSHOTS', file: 'target.zip', type: 'zip']], credentialsId: 'nexus-credentials', groupId: 'mygroupID', nexusUrl: '10.1.100.158:8081', nexusVersion: 'nexus2', protocol: 'http', repository: 'repository-example', version: 'V3'             
+nexusArtifactUploader artifacts: [[artifactId: 'diwo_AMEXARTIFACTS_0012-LOVEN$BUILD_NUMBER', classifier: 'SNAPSHOTS', file: 'target/*.jar', type: 'jar']], credentialsId: 'nexus-credentials', groupId: 'mygroupID', nexusUrl: '10.1.100.158:8081', nexusVersion: 'nexus2', protocol: 'http', repository: 'repository-example', version: 'V3'             
 
                        }
                 
