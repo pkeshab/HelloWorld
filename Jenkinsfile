@@ -32,7 +32,13 @@ pipeline {
             
             stage('Upload in nexus repo'){
                 steps {
-nexusArtifactUploader artifacts: [[artifactId: 'mygroupID', classifier: 'snapshots', file: 'HelloWorld-assembly-0.1.jar', type: 'jar']], credentialsId: '', groupId: 'mygroupID', nexusUrl: '10.1.100.158:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'repository-example', version: 'V3'
+                    sh label: '', script: '''version=1.2.3
+artefact="myartefact"
+repoId=example-repository
+groupId=SCALAPROJECT
+REPO_URL=http://10.1.100.158:8081
+
+curl -u admin:admin123 --upload-file $ARTIFACT_VALUE $REPO_URL/content/repositories/$repoId/$groupId/$artefact/$version/$artefact-$version.jar'''
                        }
                 
             }
