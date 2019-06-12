@@ -15,10 +15,10 @@ pipeline {
                 //sh label: '', script: 'sbt clean assembly'
                 sh label: '', script: 'ls /var/jenkins_home/workspace'
                 echo "$BUILD_NUMBER"
-                echo "$JOB_NAME"
+                sh label: '', script: 'echo "$JOB_NAME"'
                 sh label: '', script: 'git branch'
                 echo "$WORKSPACE"
-                sh label: '', script: 'java -jar /var/jenkins_home/workspace/$JOB_NAME_master@2/target/scala-2.12/HelloWorld-assembly-0.1.jar'
+                //sh label: '', script: 'java -jar /var/jenkins_home/workspace/$JOB_NAME_master@2/target/scala-2.12/HelloWorld-assembly-0.1.jar'
             
             }
         }
