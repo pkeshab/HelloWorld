@@ -38,7 +38,7 @@ repoId=example-repository
 groupId=SCALAPROJECT
 REPO_URL=http://10.1.100.158:8081
 
-curl -u admin:admin123 --upload-file $ARTIFACT_VALUE $REPO_URL/content/repositories/$repoId/$groupId/$artefact/$version/$artefact-$version.jar'''
+curl -u admin:admin123 --upload-file $ARTIFACT_VALUE $REPO_URL/repository/repositories/$repoId/$groupId/$artefact/$version/$artefact-$version.jar'''
                        }
                 
             }
