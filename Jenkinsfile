@@ -22,7 +22,7 @@ pipeline {
                 
                 sh label: '', script: 'java -jar ${WORKSPACE}/target/scala-2.12/HelloWorld-assembly-0.1.jar'
                 archiveArtifacts artifacts: 'target/scala-2.12/*', onlyIfSuccessful: true
-                sh label: '', script: 'ls ${WORKSPACE}
+                sh label: '', script: 'ls ${WORKSPACE}'
 
             
             }
