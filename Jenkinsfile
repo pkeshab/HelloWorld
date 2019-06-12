@@ -32,8 +32,7 @@ pipeline {
             
             stage('Upload in nexus repo'){
                 steps {
-nexusArtifactUploader artifacts: [[artifactId: 'diwo_AMEXARTIFACTS_0012-LOVEN$BUILD_NUMBER', classifier: 'SNAPSHOTS', file: 'sh label: '', script: '$ARTIFACT_VALUE'', type: 'jar']], credentialsId: 'nexus-credentials', groupId: 'mygroupID', nexusUrl: '10.1.100.158:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'repository-example', version: 'V3'             
-
+nexusArtifactUploader artifacts: [[artifactId: 'mygroupID', classifier: 'snapshots', file: '${WORKSPACE}/target/scala-2.12/HelloWorld-assembly-0.1', type: 'jar']], credentialsId: '', groupId: 'mygroupID', nexusUrl: '10.1.100.158:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'repository-example', version: 'V3'
                        }
                 
             }
