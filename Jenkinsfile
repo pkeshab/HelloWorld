@@ -32,14 +32,12 @@ pipeline {
             
             stage('Upload in nexus repo'){
                 steps {
-                    sh label: '', script: '''version=1.2.3
-artefact="myartefact"
-repoId=example-repository
-groupId=SCALAPROJECT
-REPO_URL=http://10.1.100.158:8081
-
-curl -u admin:admin123 --upload-file $ARTIFACT_VALUE $REPO_URL/repository/repositories/$repoId/$groupId/$artefact/$version/$artefact-$version.jar'''
-                       }
+        shell('''
+            |cd $WORKSPACE/target/scala-2.12
+            |curl -v -F r=repository-example -F hasPom=false -F e=war -F g=lovengroup -F a=petclinic -F v=1.0 -F p=jar -F file=HelloWorld-assembly-0.1 -u admin:admin123 http://10.1.100.158:8081/repository/repository-example
+              '''.stripMargin()
+        )
+    }
                 
             }
         /*stage('Build the docker image'){
