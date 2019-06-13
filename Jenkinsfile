@@ -31,11 +31,7 @@ pipeline {
       
             
             stage('Upload in nexus repo'){
-                steps {
-            sh label: '', script: '''cd $WORKSPACE/target/scala-2.12 &&
-            curl -v -F r=repository-example -F hasPom=false -F e=war -F g=lovengroup.com -F a=petclinic -F v=1.0 -F p=jar -F file=HelloWorld-assembly-0.1 -u admin:admin123 http://10.1.100.158:8081/repository/repository-example/
-    
-'''
+nexusArtifactUploader artifacts: [[artifactId: 'diwo-amexID', classifier: 'executeable', file: 'HelloWorld-assembly-0.1', type: 'jar']], credentialsId: 'mynexus-credentials', groupId: 'amex-artifacts', nexusUrl: '10.1.100.158:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'repository-example', version: 'V3'           
  }
                 
             }
