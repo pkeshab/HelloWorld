@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        /*stage('Test and package'){
+        stage('Test and package'){
             agent {
         docker {
             image 'hseeberger/scala-sbt'
@@ -22,12 +22,12 @@ pipeline {
                 
                 sh label: '', script: 'java -jar ${WORKSPACE}/target/scala-2.12/HelloWorld-assembly-0.1.jar'
                 //archiveArtifacts artifacts: 'target/scala-2.12/*', onlyIfSuccessful: true
-                sh label: '', script: 'ARTIFACT_VALUE=$WORKSPACE/target/scala-2.12/HelloWorld-assembly-0.1  && echo $ARTIFACT_VALUE'
+                //sh label: '', script: 'ARTIFACT_VALUE=$WORKSPACE/target/scala-2.12/HelloWorld-assembly-0.1  && echo $ARTIFACT_VALUE'
                
 
             
             }
-        }*/
+        }
       
             
 
