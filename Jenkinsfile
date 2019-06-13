@@ -22,7 +22,7 @@ pipeline {
                 
                 sh label: '', script: 'java -jar ${WORKSPACE}/target/scala-2.12/HelloWorld-assembly-0.1.jar'
                 //archiveArtifacts artifacts: 'target/scala-2.12/*', onlyIfSuccessful: true
-                //sh label: '', script: 'ARTIFACT_VALUE=$WORKSPACE/target/scala-2.12/HelloWorld-assembly-0.1  && echo $ARTIFACT_VALUE'
+                sh label: '', script: 'ARTIFACT_VALUE=$WORKSPACE/target/scala-2.12/HelloWorld-assembly-0.1  && echo $ARTIFACT_VALUE'
                
 
             
@@ -34,7 +34,7 @@ pipeline {
         stage('Upload in nexus repo'){
             steps{
             sh label: '', script: 'ls ${WORKSPACE}/target/scala-2.12' 
-            sh label: '', script: '''curl -v -u admin:admin123 --upload-file  $WORKSPACE/target/scala-2.12/HelloWorld-assembly-0.1.jar http://10.1.100.158:8081/repository/releases/LOVEN/$BUILD_NUMBER/1.0/$BUILD_NUMBER-1.0.jar
+            sh label: '', script: '''curl -v -u admin:admin123 --upload-file $ARTIFACT_VALUE http://10.1.100.158:8081/repository/releases/LOVEN/$BUILD_NUMBER/1.0/$BUILD_NUMBER-1.0.jar
 
 '''
             }
