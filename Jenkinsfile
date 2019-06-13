@@ -33,7 +33,7 @@ pipeline {
 
         stage('Upload in nexus repo'){
             steps{
-            sh label: '', script: '''curl -v -u admin:admin123 --upload-file  /var/jenkins_home/workspace/FirstScala_master@2/target/scala-2.12/HelloWorld-assembly-0.1.jar http://10.1.100.158:8081/#admin/repository/repositories:repository-example/artifact.jar
+            sh label: '', script: '''curl -v -u admin:admin123 --upload-file  /var/jenkins_home/workspace/FirstScala_master@2/target/scala-2.12/HelloWorld-assembly-0.1.jar http://10.1.100.158:8081/repository/releases/org/foo/1.0/foo-1.0.jar
 
 '''
             }
