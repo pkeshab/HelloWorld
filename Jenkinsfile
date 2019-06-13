@@ -35,7 +35,7 @@ pipeline {
             steps{
             echo "$WORKSPACE"
             //sh label: '', script: 'ls ${WORKSPACE}/target/scala-2.12' 
-            sh label: '', script: '''curl -v -u admin:admin123 --upload-file $WORKSPACE@2/target/scala-2.12/HelloWorld-assembly-0.1.jar  http://10.1.100.158:8081/repository/releases/LOVEN/$BUILD_NUMBER/1.0/$BUILD_NUMBER-1.0.jar'''
+            sh label: '', script: '''curl -v -u admin:admin123 --upload-file $WORKSPACE@2/target/scala-2.12/HelloWorld-assembly-0.1.jar  http://10.1.100.158:8081/repository/repository-example/LOVEN/AMEX_diwo0011/V_$BUILD_NUMBER-1.0/amexartifact_$BUILD_NUMBER-1.0.jar'''
             }
         }
         /*stage('Build the docker image'){
