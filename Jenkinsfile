@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    stages {
+    /*stages {
         stage('Test and package'){
             agent {
         docker {
@@ -27,7 +27,7 @@ pipeline {
 
             
             }
-        }
+        }*/
       
             
 
