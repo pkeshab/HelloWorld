@@ -51,7 +51,7 @@ usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
         stage('Build the docker image'){
             steps{
             sh 'docker ps'
-            sh 'docker build -t kpandeydocker/scalaproject:$BUILD_NUMBER_latest .'
+            sh 'docker build -t kpandeydocker/scalaproject:latest .'
             
             }
         }
