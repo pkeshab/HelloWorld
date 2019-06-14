@@ -59,7 +59,7 @@ usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 			steps{
 			    script {
           			docker.withRegistry( '', registryCredential ) {
-            			dockerImage.push()
+            			kpandeydocker/scalaproject:latest.push()
           }
 				    
         }
