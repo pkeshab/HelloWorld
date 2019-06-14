@@ -55,7 +55,7 @@ usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 				script{withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'docker-login',
 usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 					
-					sh 'docker login -u $USERNAME:$PASSWORD'
+					sh 'docker login -v -u $USERNAME:$PASSWORD'
 				}
 				      }
 
