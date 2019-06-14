@@ -68,7 +68,19 @@ usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 			}
 
 			}
-        }
+       
+	    
+	    stage( 'REMOVE THE DOCKER IAMGE FROM LOCAL'){
+		    steps{
+			    script{
+			    	sh "docker rmi $registry:$BUILD_NUMBER"
+				
+			    }
+		    
+		    }
+	    
+	    }
+    }
     
     
     
