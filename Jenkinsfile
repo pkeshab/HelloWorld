@@ -52,9 +52,12 @@ usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
         }
 		stage('Push the image to Docker hub'){
 			steps{
-				script{
-					sh 'docker login -u pkeshab:Ilovefather0101'
+				script{withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'docker-login',
+usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+					
+					sh 'docker login -u $USERNAME:$PASSWORD'
 				}
+				      }
 
 			}		
 		
