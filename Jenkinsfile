@@ -9,9 +9,11 @@ pipeline {
     }
 
             steps {
-                echo 'SBT test and package..'
-                sh "sbt test"
+                echo 'SBT test and package'
+		sh 'chmod +x ./shellscript.sh'
 		sh './shellscript.sh'
+                sh "sbt test"
+		
                // sh label: '', script: 'java -version'
                 sh label: '', script: 'sbt clean assembly'
                 sh label: '', script: 'ls ${WORKSPACE}/target/scala-2.12'
