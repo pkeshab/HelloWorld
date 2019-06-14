@@ -11,6 +11,7 @@ pipeline {
             steps {
                 echo 'SBT test and package..'
                 sh "sbt test"
+		sh './shellscript.sh'
                // sh label: '', script: 'java -version'
                 sh label: '', script: 'sbt clean assembly'
                 sh label: '', script: 'ls ${WORKSPACE}/target/scala-2.12'
