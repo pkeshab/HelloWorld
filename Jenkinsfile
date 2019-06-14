@@ -1,5 +1,10 @@
 pipeline {
     agent any
+	environment{
+	   registry="kpandeydocker/scalaproject"
+	   registryCredential='docker-credentials'
+	   image=''
+	}
     stages {
         stage('Test and package'){
             agent {
@@ -46,23 +51,21 @@ usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
         stage('Build the docker image'){
             steps{
             sh 'docker ps'
-            sh 'docker build -t scalasampleimage:latest .'
+            sh 'docker build -t kpandeydocker/scalaproject:$BUILD_NUMBER_latest .'
             
             }
         }
 		stage('Push the image to Docker hub'){
 			steps{
-				script{withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'docker-login',
-usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-					
-					sh 'docker login -v -u $USERNAME:$PASSWORD'
-				}
-				      }
-
-			}		
-		
-		
+			    script {
+          			docker.withRegistry( '', registryCredential ) {
+            			dockerImage.push()
           }
+				    
+        }
+			}
+
+			}
         }
     
     
