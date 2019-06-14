@@ -6,7 +6,7 @@ pipeline {
 	   dockerImage=''
 	}
     stages {
-        stage('Test and package'){
+        stage('TEST THE CODE AND CREATE THE ARTIFACTS'){
             agent {
         docker {
             image 'hseeberger/scala-sbt'
@@ -36,7 +36,7 @@ pipeline {
       
             
 
-        stage('Upload in nexus repo'){
+        stage('UPLOAD THE CREATED ARTIFACTS INTO NEXUS3 REPOSITORY'){
             steps{
                 script {
             echo "$WORKSPACE"
@@ -48,7 +48,7 @@ usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 			}
             }
         }
-        stage('Build the docker image'){
+        stage('CREATE THE DOCKERIMAGE OF THE LATEST ARTIFACTS FROM NEXUS3 '){
             steps{
 		    script{
 		       dockerImage = docker.build registry + ":$BUILD_NUMBER"
@@ -57,7 +57,7 @@ usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
             
             }
         }
-		stage('Push the image to Docker hub'){
+		stage('PUSH THE DOCKER IMAGE INTO DOCKER REGISTRY'){
 			steps{
 			    script {
           			docker.withRegistry( '', registryCredential ) {
