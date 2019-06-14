@@ -1,5 +1,9 @@
 pipeline {
     agent any
+	environment {
+	
+	
+	}
     stages {
         stage('Test and package'){
             agent {
@@ -9,11 +13,8 @@ pipeline {
     }
 
             steps {
-                echo 'SBT test and package'
-		sh 'chmod +x ./shellscript.sh'
-		sh './shellscript.sh'
+                echo 'SBT test and package..'
                 sh "sbt test"
-		
                // sh label: '', script: 'java -version'
                 sh label: '', script: 'sbt clean assembly'
                 sh label: '', script: 'ls ${WORKSPACE}/target/scala-2.12'
@@ -49,11 +50,20 @@ usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
         stage('Build the docker image'){
             steps{
             sh 'docker ps'
-            sh 'docker build -t scalasampleimage:$BUILD_NUMBER .'
+            sh 'docker build -t scalasampleimage:latest .'
             
             }
         }
-          
+		stage('Push the image to Docker hub'){
+			steps{
+				script{
+					sh 'docker login -u pkeshab:Ilovefather0101'
+				}
+
+			}		
+		
+		
+          }
         }
     
     
