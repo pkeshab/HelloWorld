@@ -46,13 +46,13 @@ usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 			}
             }
         }
-       /* stage('Build the docker image'){
+        stage('Build the docker image'){
             steps{
             sh 'docker ps'
             sh 'docker build -t scalasampleimage:$BUILD_NUMBER .'
             
             }
-        }*/
+        }
           
         }
     
