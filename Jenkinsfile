@@ -3,6 +3,7 @@ pipeline {
 	environment{
 	   registry="kpandeydocker/scalaproject"
 	   registryCredential='docker-credentials'
+	   dockerImage=''
 	}
     stages {
         stage('Test and package'){
@@ -49,8 +50,10 @@ usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
         }
         stage('Build the docker image'){
             steps{
-            sh 'docker ps'
-            sh 'docker build -t kpandeydocker/scalaproject:latest .'
+		    script{
+		       dockerImage = docker.build registry + ":$BUILD_NUMBER"
+		    }
+          
             
             }
         }
@@ -58,7 +61,7 @@ usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 			steps{
 			    script {
           			docker.withRegistry( '', registryCredential ) {
-            			kpandeydocker/scalaproject:latest.push()
+            			dockerImage.push()
           }
 				    
         }
