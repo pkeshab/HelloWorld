@@ -3,7 +3,6 @@ pipeline {
 	environment{
 	   registry="kpandeydocker/scalaproject"
 	   registryCredential='docker-credentials'
-	   dockerImage=''
 	}
     stages {
         stage('Test and package'){
